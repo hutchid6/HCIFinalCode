@@ -14,7 +14,9 @@ Then, move it to your desired location and unzip it. Then open Unity Hub, go to 
 
 # How to install for Non-devs
 If you'd just like to install the game to play it, you can simply download the build zip, unzip it and play it by launching the application file. The build for Windows is here: <br />
-https://drive.google.com/file/d/1mCQwG914EfmVk536OoVRMuT1rOgGG1to/view?usp=sharing
+https://drive.google.com/file/d/1mCQwG914EfmVk536OoVRMuT1rOgGG1to/view?usp=sharing <br />
+The Mac version is here: <br />
+https://drive.google.com/file/d/1JNr-q67e7HpLK0VXqyLk__8XWR9ZigM9/view?usp=sharing <br />
 
 # Overview of the Project
 We have a total of 10 scripts in our project. Some are more involved than others and play a much larger role. Some scripts simply handle a small function and are resused many times. We will give a short overview of what each script does and how it connects to the project as a whole. Each script is also commented to help you understand what it does and how it works. <br />
