@@ -17,6 +17,31 @@ We have a total of 10 scripts in our project. Some are more involved than others
 This script controls the Main Camera which you see the world through. Every frame it will update the camera's position to be the player's position using a smoothing technique. This script is simply attached to the Main Camera game object itself and only controls the Main Camera. It does get a reference to the player's Transform Component through the inspector though. <br />
 
 ## DialogueManager
+The dialogue manager is the script which controls the dialogue trees and displays dialogue in the actual game. It uses the Node class to add to its node array and store content that needs to be displayed. The dialogue manager is also referenced by other scripts like the PlayerController in order to see if dialogue is currently playing or not. There is a lot of work done in the inspector for this script, because it basically has a framework for adding all of our dialogue in the game. To see the information in the inspector, navigate to the Dialogue game object in the hierarchy, then find its child DialogueManager. That game object has this DialogueManager script attached as a component.
+
+## Node
+This is the class which DialogueManager uses to store all the information required for each piece of dialogue. It includes what text to display, the correct audio clip to play, which nodes it connects to, etc. There are many instances of this class in an array in the DialogueManager.
+
+## PlayerController
+This script handles all of the player movement and animations. It also handles one of the largest accessibility features in our game, the pathfinding with directional audio. This script constantly calculates the path to the current objective and will display the arrow and its directional audio according to these calculations. Handling movement and animations is done in the HandleMovement() function. This script is attached to the Player game object and references the DialogueManager to see if it is running or not, and a bunch of different sound objects. We are using a library/package for the A* pathfinding algorithm itself and you can see its use from the Seeker class.
+
+## Door
+This is a simple script that we reuse throughout the game in order to change scenes when a player walks into a certain area. It uses a trigger collider attached to the same game object as this script.
+
+## PlayDialogueOnStart
+This is another simple script that will ask the DialogueManager to start a certain dialogue node as soon as the scene finishes loading (when a scene starts). We reuse this in every scene where dialogue is the first thing you see. The node that is desired to be started for each instance is determined in the inspector. See the game object PlayDialogueOnStart in the Hierarchy for examples.
+
+## Interactable
+This is a script similar to PlayDialogueOnStart except it handles playing the correct dialogue when the player walks up to a character in the game and is prompted to start a dialogue. This handles the dialogue prompt which is controlled using another trigger. It also allows you to assign which dialogue should be started using the inspector like PlayDialogueOnStart. We reuse this script for every NPC in the game. To find it click on any NPC character and find its child named Interactable.
+
+## HelpMenuManager
+This script controls the help menu that pops up when the user presses H. It Connects with a few game objects such as the Help Menu itself and the Help Menu Sound that needs to be played to read out the text of the menu. 
+
+## MainMenuManager
+This is the script that controls the main menu in the very first scene of the game (the title screen). It has the coroutine for the blinking text, activates the audio for this scene, and allows the user to press enter to start the game.
+
+## PressEscToClose
+This final script is very simple and allows the player to close the application when the The End game object is showing. It is connected to this game object so is only active when that game object is active. It should also be noted that pressing escape to exit will only work when playing a built version of the game, and will not work while playing the game in the Unity Editor because it is not an application.
 
 
 
